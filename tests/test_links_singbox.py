@@ -1,0 +1,285 @@
+import base64
+import json
+from urllib.parse import parse_qs, unquote, urlsplit
+
+import pytest
+
+from l_toolkit.errors import ValidationError
+from l_toolkit.extract import extract
+from l_toolkit.links import build_link, certificate_pin, check_link, display_name, flag, unique_names
+from l_toolkit.singbox import (
+    RESERVED_TAGS,
+    SELECTOR_TAG,
+    URLTEST_TAG,
+    build_profile,
+    render_profile,
+    validate_profile,
+)
+
+
+@pytest.fixture
+def proxies(config_response):
+    return extract(config_response).proxies
+
+
+def test_flag_and_names(proxies):
+    assert flag("DE") == "🇩🇪"
+    assert flag("") == "" and flag("D1") == ""
+    assert display_name(proxies[0]) == "🇩🇪 Germany · Frankfurt · SS"
+    assert display_name(proxies[1]) == "🇩🇪 Germany · Frankfurt · VLESS"
+
+
+def test_unique_names_suffix_and_reserved(proxies):
+    names = unique_names([proxies[0], proxies[0]], reserved=("x",))
+    assert names == ["🇩🇪 Germany · Frankfurt · SS", "🇩🇪 Germany · Frankfurt · SS #2"]
+
+
+def test_shadowsocks_link_roundtrip(proxies):
+    link = build_link(proxies[0], "name")
+    parts = urlsplit(link)
+    assert parts.scheme == "ss" and parts.port == 443
+    decoded = base64.urlsafe_b64decode(parts.username + "=" * (-len(parts.username) % 4)).decode()
+    assert decoded == "2022-blake3-chacha20-poly1305:" + proxies[0].outbound["password"]
+
+
+def test_vless_reality_link_has_all_parameters(proxies):
+    link = build_link(proxies[1], "🇩🇪 Germany · Frankfurt · VLESS")
+    parts = urlsplit(link)
+    query = {k: v[0] for k, v in parse_qs(parts.query, keep_blank_values=True).items()}
+    assert query["security"] == "reality"
+    assert query["flow"] == "xtls-rprx-vision"
+    assert query["sni"] == "www.example.com"
+    assert query["fp"] == "chrome"
+    assert query["pbk"] == proxies[1].outbound["tls"]["reality"]["public_key"]
+    assert query["sid"] == ""
+    assert query["encryption"] == "none" and query["type"] == "tcp"
+    assert unquote(parts.fragment) == "🇩🇪 Germany · Frankfurt · VLESS"
+
+
+def test_check_link_detects_tampering(proxies):
+    link = build_link(proxies[1], "n")
+    with pytest.raises(ValidationError):
+        check_link(link.replace("security=reality", "security=none"), proxies[1])
+    with pytest.raises(ValidationError):
+        check_link(link.replace(":443?", ":444?"), proxies[1])
+
+
+def test_ipv6_host_is_bracketed(proxies):
+    proxy = proxies[0]
+    outbound = dict(proxy.outbound, server="2001:db8::1")
+    from l_toolkit.extract import Proxy
+
+    v6 = Proxy(proxy.kind, outbound, proxy.country_code, proxy.country, proxy.city)
+    link = build_link(v6, "n")
+    assert "@[2001:db8::1]:443" in link
+
+
+def test_profile_structure(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    outbounds = {o["tag"]: o for o in profile["outbounds"]}
+    assert outbounds[SELECTOR_TAG]["default"] == URLTEST_TAG
+    assert outbounds[SELECTOR_TAG]["outbounds"] == [URLTEST_TAG] + names
+    assert outbounds[URLTEST_TAG]["outbounds"] == names
+    assert outbounds[names[0]]["type"] == "shadowsocks"
+    assert outbounds[names[1]]["tls"]["reality"]["enabled"] is True
+    assert profile["route"]["final"] == SELECTOR_TAG
+    assert json.loads(render_profile(profile)) == profile
+
+
+def test_profile_rejects_inconsistent_input(proxies):
+    with pytest.raises(ValidationError):
+        build_profile(proxies, ["only-one"])
+    with pytest.raises(ValidationError):
+        build_profile(proxies, ["a", "a"])
+    with pytest.raises(ValidationError):
+        build_profile(proxies, [SELECTOR_TAG, "b"])
+    with pytest.raises(ValidationError):
+        build_profile([], [])
+
+
+def test_validate_profile_catches_dangling_references(proxies):
+    names = unique_names(proxies)
+    profile = build_profile(proxies, names)
+    profile["route"]["final"] = "missing"
+    with pytest.raises(ValidationError):
+        validate_profile(profile, 3)
+
+
+def test_hysteria2_link_has_sni_insecure_and_pin(proxies):
+    hy2 = proxies[2]
+    link = build_link(hy2, "name")
+    parts = urlsplit(link)
+    query = {k: v[0] for k, v in parse_qs(parts.query, keep_blank_values=True).items()}
+    assert parts.scheme == "hysteria2" and parts.username == hy2.outbound["password"]
+    assert query["sni"] == "hy2.example.com" and query["insecure"] == "1"
+    assert query["pinSHA256"] == certificate_pin(hy2.outbound["tls"]["certificate"])
+    assert len(query["pinSHA256"]) == 64
+
+
+def test_hysteria2_password_is_percent_encoded(proxies):
+    from l_toolkit.extract import Proxy
+
+    hy2 = proxies[2]
+    outbound = dict(hy2.outbound, password="p@ss:w/rd#1")
+    odd = Proxy(hy2.kind, outbound, hy2.country_code, hy2.country, hy2.city)
+    link = build_link(odd, "n")
+    assert "p%40ss%3Aw%2Frd%231@" in link
+
+
+def test_hysteria2_link_tampering_is_detected(proxies):
+    link = build_link(proxies[2], "n")
+    with pytest.raises(ValidationError):
+        check_link(link.replace("insecure=1", "insecure=0"), proxies[2])
+    with pytest.raises(ValidationError):
+        check_link(link.replace("pinSHA256=", "pinSHA256=00"), proxies[2])
+
+
+def test_profile_embeds_hysteria2_certificate_as_lines(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    hy2 = next(o for o in profile["outbounds"] if o["type"] == "hysteria2")
+    lines = hy2["tls"]["certificate"]
+    assert lines[0] == "-----BEGIN CERTIFICATE-----" and lines[-1] == "-----END CERTIFICATE-----"
+    assert hy2["tls"]["server_name"] == "hy2.example.com"
+    assert "insecure" not in hy2["tls"]
+    assert proxies[2].outbound["tls"]["certificate"].startswith("-----BEGIN")
+
+
+def test_profile_is_a_complete_client_profile_with_tun(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    tun = [i for i in profile["inbounds"] if i["type"] == "tun"]
+    assert len(tun) == 1 and tun[0]["auto_route"] is True
+    assert profile["dns"]["final"] == "dns-remote"
+    assert profile["dns"]["servers"][0]["detour"] == SELECTOR_TAG
+    actions = [rule.get("action") for rule in profile["route"]["rules"]]
+    assert actions[0] == "sniff" and "hijack-dns" in actions
+    assert profile["route"]["auto_detect_interface"] is True
+
+
+def test_profile_without_tun_is_rejected(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    profile["inbounds"] = [{"type": "mixed", "tag": "m", "listen": "127.0.0.1", "listen_port": 1}]
+    with pytest.raises(ValidationError):
+        validate_profile(profile, 3)
+
+
+def test_profile_with_dangling_dns_or_rule_is_rejected(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    broken = json.loads(json.dumps(profile))
+    broken["dns"]["final"] = "nope"
+    with pytest.raises(ValidationError):
+        validate_profile(broken, 3)
+    broken = json.loads(json.dumps(profile))
+    broken["route"]["rules"][2]["outbound"] = "nope"
+    with pytest.raises(ValidationError):
+        validate_profile(broken, 3)
+
+
+def test_group_names_follow_the_tcb_convention(proxies):
+    assert SELECTOR_TAG == "\U0001F47D Anonymous L \U0001F680"
+    assert URLTEST_TAG == "\U0001F47D Anonymous L \U0001F310"
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    kinds = {o["tag"]: o["type"] for o in profile["outbounds"]}
+    assert kinds[SELECTOR_TAG] == "selector" and kinds[URLTEST_TAG] == "urltest"
+
+
+def test_iran_split_routing_dns_and_cache(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    route = profile["route"]
+    sets = {item["tag"]: item for item in route["rule_set"]}
+    assert set(sets) == {"geosite-ir", "geoip-ir"}
+    for item in sets.values():
+        assert item["type"] == "remote" and item["format"] == "binary"
+        assert item["url"].startswith("https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/")
+        assert item["http_client"] == {"detour": "direct"}
+    iran_rule = route["rules"][3]
+    assert iran_rule == {"rule_set": ["geosite-ir", "geoip-ir"], "outbound": "direct"}
+    assert profile["dns"]["rules"] == [{"rule_set": ["geosite-ir"], "server": "dns-direct"}]
+    direct = next(o for o in profile["outbounds"] if o["tag"] == "direct")
+    assert direct == {"type": "direct", "tag": "direct", "domain_resolver": "dns-direct"}
+    assert "default_domain_resolver" not in route
+    assert profile["experimental"]["cache_file"]["enabled"] is True
+
+
+def test_unknown_rule_set_or_dns_server_is_rejected(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    profile = build_profile(proxies, names)
+    broken = json.loads(json.dumps(profile))
+    broken["route"]["rules"][3]["rule_set"] = ["geosite-nope"]
+    with pytest.raises(ValidationError):
+        validate_profile(broken, 3)
+    broken = json.loads(json.dumps(profile))
+    broken["dns"]["rules"][0]["server"] = "nope"
+    with pytest.raises(ValidationError):
+        validate_profile(broken, 3)
+    broken = json.loads(json.dumps(profile))
+    next(o for o in broken["outbounds"] if o["tag"] == "direct")["domain_resolver"] = "nope"
+    with pytest.raises(ValidationError):
+        validate_profile(broken, 3)
+
+
+import hashlib
+import ssl
+
+from certs import make_pem
+from l_toolkit.extract import Proxy
+
+
+def _modified_hy2(proxies, **changes):
+    source = proxies[2]
+    outbound = json.loads(json.dumps(source.outbound))
+    outbound.update(changes)
+    return Proxy(source.kind, outbound, source.country_code, source.country, source.city)
+
+
+def test_singbox_hysteria2_never_carries_the_junk_flag(proxies):
+    names = unique_names(proxies, reserved=RESERVED_TAGS)
+    for junk in (True, False):
+        swapped = [proxies[0], proxies[1], _modified_hy2(proxies, pre_initial_junk=junk)]
+        profile = build_profile(swapped, names)
+        hy2 = next(o for o in profile["outbounds"] if o["type"] == "hysteria2")
+        assert "pre_initial_junk" not in hy2
+
+
+def test_the_link_cannot_carry_the_junk_flag(proxies):
+    link = build_link(_modified_hy2(proxies, pre_initial_junk=True), "n")
+    assert "junk" not in link.lower()
+
+
+def test_pin_in_the_link_is_the_official_hysteria_format(proxies):
+    pem = proxies[2].outbound["tls"]["certificate"]
+    expected = hashlib.sha256(ssl.PEM_cert_to_DER_cert(pem)).hexdigest()
+    assert certificate_pin(pem) == expected
+    query = parse_qs(urlsplit(build_link(proxies[2], "n")).query)
+    assert query["pinSHA256"] == [expected] and len(expected) == 64 and expected == expected.lower()
+
+
+def test_a_replaced_certificate_changes_the_link_pin(proxies):
+    other = _modified_hy2(proxies)
+    other.outbound["tls"]["certificate"] = make_pem()
+    first = parse_qs(urlsplit(build_link(proxies[2], "n")).query)["pinSHA256"]
+    second = parse_qs(urlsplit(build_link(other, "n")).query)["pinSHA256"]
+    assert first != second
+
+
+def test_vless_packet_encoding_reaches_the_link_and_the_profile(proxies):
+    source = proxies[1]
+    outbound = json.loads(json.dumps(source.outbound))
+    outbound["packet_encoding"] = "xudp"
+    proxy = Proxy(source.kind, outbound, source.country_code, source.country, source.city)
+    assert parse_qs(urlsplit(build_link(proxy, "n")).query)["packetEncoding"] == ["xudp"]
+    names = unique_names([proxies[0], proxy, proxies[2]], reserved=RESERVED_TAGS)
+    profile = build_profile([proxies[0], proxy, proxies[2]], names)
+    vless_out = next(o for o in profile["outbounds"] if o["type"] == "vless")
+    assert vless_out["packet_encoding"] == "xudp"
+
+
+def test_no_private_key_or_unused_pem_reaches_the_link_list(proxies):
+    links = "\n".join(build_link(p, "n") for p in proxies)
+    assert "PRIVATE KEY" not in links and "BEGIN CERTIFICATE" not in links
