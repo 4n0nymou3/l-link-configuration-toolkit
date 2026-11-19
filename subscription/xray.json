@@ -38,6 +38,26 @@
   ],
   "outbounds": [
     {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "35.179.104.167",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
+      },
+      "tag": "l-01-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "3.71.90.130",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+      },
+      "tag": "l-02-ss"
+    },
+    {
       "protocol": "vless",
       "settings": {
         "address": "108.130.132.216",
@@ -55,23 +75,13 @@
           "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
         }
       },
-      "tag": "l-01-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "3.71.90.130",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
-      },
-      "tag": "l-02-ss"
+      "tag": "l-03-vless"
     },
     {
       "protocol": "hysteria",
       "settings": {
         "version": 2,
-        "address": "172.239.237.38",
+        "address": "172.235.189.129",
         "port": 8443
       },
       "streamSettings": {
@@ -82,11 +92,11 @@
           "alpn": [
             "h3"
           ],
-          "pinnedPeerCertSha256": "fba50904dd2b047c7dccda9d35cc694022347eb85d36e3911ea6b127d4edb912"
+          "pinnedPeerCertSha256": "d47a90b9a81b39941f03ff867f028f6126f35d0e5f74eb74be4cc35b9d3bd532"
         },
         "hysteriaSettings": {
           "version": 2,
-          "auth": "eecd4c0143983b6cf81b757a1462a1863b1fea1bdd680a1f7b775bf5725d205c"
+          "auth": "d30c9ce30839dffc9d7f117c154662ebb2c6b19136250fe6499f6f72d85ab35d"
         },
         "finalmask": {
           "udp": [
@@ -105,17 +115,7 @@
           ]
         }
       },
-      "tag": "l-03-hy2"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "35.179.104.167",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
-      },
-      "tag": "l-04-ss"
+      "tag": "l-04-hy2"
     },
     {
       "tag": "direct",
@@ -134,7 +134,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-vless",
+        "fallbackTag": "l-01-ss",
         "strategy": {
           "type": "leastPing"
         }
