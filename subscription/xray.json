@@ -60,20 +60,20 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "47.254.167.157",
+        "address": "35.179.104.167",
         "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
       },
       "tag": "l-02-ss"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "35.179.104.167",
+        "address": "47.254.167.157",
         "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
+        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
       },
       "tag": "l-03-ss"
     },
@@ -81,7 +81,7 @@
       "protocol": "hysteria",
       "settings": {
         "version": 2,
-        "address": "172.235.189.129",
+        "address": "172.239.237.38",
         "port": 8443
       },
       "streamSettings": {
@@ -92,11 +92,11 @@
           "alpn": [
             "h3"
           ],
-          "pinnedPeerCertSha256": "d47a90b9a81b39941f03ff867f028f6126f35d0e5f74eb74be4cc35b9d3bd532"
+          "pinnedPeerCertSha256": "fba50904dd2b047c7dccda9d35cc694022347eb85d36e3911ea6b127d4edb912"
         },
         "hysteriaSettings": {
           "version": 2,
-          "auth": "d30c9ce30839dffc9d7f117c154662ebb2c6b19136250fe6499f6f72d85ab35d"
+          "auth": "eecd4c0143983b6cf81b757a1462a1863b1fea1bdd680a1f7b775bf5725d205c"
         },
         "finalmask": {
           "udp": [
