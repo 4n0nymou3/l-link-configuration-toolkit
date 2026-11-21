@@ -4,9 +4,9 @@
 //support-url: https://t.me/An0nymou3Bot
 //profile-web-page-url: https://github.com/4n0nymou3
 
-ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6M05Cc25CTGFuUGZHNmkzUzJHVEhpbmVzd3I2RWVTSlBiMFBDZU1Rb0dvQT0@47.252.43.236:443#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%C2%B7%20Frankfurt%20%C2%B7%20SS
-ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6RFFQL0h0c1hFREs1S1BBNzJhazlqVzF5WTBPUHRTNzluNFF5c2pGczhwdz0@163.176.97.54:59319#%F0%9F%87%A7%F0%9F%87%B7%20Brazil%20%C2%B7%20S%C3%A3o%20Paulo%20%C2%B7%20SS
-vless://060f6299-3a5d-407d-b796-0e5ff18d8f71@193.123.58.178:58988?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%20%C2%B7%20Amsterdam%20%C2%B7%20VLESS
-vless://3fc3e0cf-2d3c-4c0f-9479-716712ebdb92@147.224.226.144:62905?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%A8%F0%9F%87%B1%20Chile%20%C2%B7%20Valparaiso%20%C2%B7%20VLESS
 vless://ce4bcb13-0fff-4c50-a05e-3e75e59ac9b1@158.179.203.218:64346?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B8%F0%9F%87%AA%20Sweden%20%C2%B7%20Stockholm%20%C2%B7%20VLESS
+vless://04bcfbb8-06d1-4922-ad5a-54ab28b1afda@40.233.1.77:61503?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B2%F0%9F%87%BD%20Mexico%20%C2%B7%20Monterrey%20%C2%B7%20VLESS
 ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6SDBzMHFEL29yaDYzREQ4RUVjSDdCRXJDMnpQTE9tbWNtMFhjWlBqK2xpbz0@129.151.78.86:61312#%F0%9F%87%AC%F0%9F%87%A7%20United%20Kingdom%20%C2%B7%20Cardiff%20%C2%B7%20SS
+vless://060f6299-3a5d-407d-b796-0e5ff18d8f71@193.123.58.178:58988?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%20%C2%B7%20Amsterdam%20%C2%B7%20VLESS
+ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6RFFQL0h0c1hFREs1S1BBNzJhazlqVzF5WTBPUHRTNzluNFF5c2pGczhwdz0@163.176.97.54:59319#%F0%9F%87%A7%F0%9F%87%B7%20Brazil%20%C2%B7%20S%C3%A3o%20Paulo%20%C2%B7%20SS
+ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6M05Cc25CTGFuUGZHNmkzUzJHVEhpbmVzd3I2RWVTSlBiMFBDZU1Rb0dvQT0@47.252.43.236:443#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%C2%B7%20Frankfurt%20%C2%B7%20SS
