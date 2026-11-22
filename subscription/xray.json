@@ -38,16 +38,6 @@
   ],
   "outbounds": [
     {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "144.22.168.108",
-        "port": 59319,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "JlYWfyPGeC3bYDcl2hJCsgODec36rua5YToLCxcgrEM="
-      },
-      "tag": "l-01-ss"
-    },
-    {
       "protocol": "vless",
       "settings": {
         "address": "40.233.1.77",
@@ -66,14 +56,14 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-02-vless"
+      "tag": "l-01-vless"
     },
     {
       "protocol": "vless",
       "settings": {
-        "address": "31.184.244.97",
-        "port": 64921,
-        "id": "70dd5f86-6941-4560-bb8e-62a5c11868e5",
+        "address": "172.233.202.240",
+        "port": 65202,
+        "id": "568ba536-998e-40a7-b687-c799ec876170",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -87,17 +77,7 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-03-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "47.85.238.210",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
-      },
-      "tag": "l-04-ss"
+      "tag": "l-02-vless"
     },
     {
       "protocol": "vless",
@@ -118,15 +98,35 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-05-vless"
+      "tag": "l-03-vless"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "161.153.38.61",
+        "address": "144.22.168.108",
+        "port": 59319,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "JlYWfyPGeC3bYDcl2hJCsgODec36rua5YToLCxcgrEM="
+      },
+      "tag": "l-04-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "129.153.98.43",
         "port": 50356,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "EP/0kIjk18c43tfkqeJqdVQm8lGArteYkhhwgBJ3q70="
+        "password": "8raY95YKpFi6jz6EISftyuw0mqoCIj+ztS0ywTwpXH4="
+      },
+      "tag": "l-05-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "92.5.30.226",
+        "port": 59924,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "JyTeDvfBfbUfAgDPFlB76J4a0npa5G44cmT+1f++Dv8="
       },
       "tag": "l-06-ss"
     },
@@ -147,7 +147,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-ss",
+        "fallbackTag": "l-01-vless",
         "strategy": {
           "type": "leastPing"
         }
