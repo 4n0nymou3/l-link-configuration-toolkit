@@ -45,11 +45,11 @@
       "tag": "👽 Anonymous L 🚀",
       "outbounds": [
         "👽 Anonymous L 🌐",
-        "🇬🇧 United Kingdom · Cardiff · SS",
-        "🇫🇷 France · Marseille · VLESS",
-        "🇮🇹 Italy · Milan · VLESS",
-        "🇳🇱 Netherlands · Amsterdam · VLESS",
         "🇧🇷 Brazil · São Paulo · SS",
+        "🇲🇽 Mexico · Monterrey · VLESS",
+        "🇩🇪 Germany · Frankfurt · VLESS",
+        "🇩🇪 Germany · Frankfurt · SS",
+        "🇳🇱 Netherlands · Amsterdam · VLESS",
         "🇺🇸 U.S.A. · Phoenix · SS"
       ],
       "default": "👽 Anonymous L 🌐"
@@ -58,11 +58,11 @@
       "type": "urltest",
       "tag": "👽 Anonymous L 🌐",
       "outbounds": [
-        "🇬🇧 United Kingdom · Cardiff · SS",
-        "🇫🇷 France · Marseille · VLESS",
-        "🇮🇹 Italy · Milan · VLESS",
-        "🇳🇱 Netherlands · Amsterdam · VLESS",
         "🇧🇷 Brazil · São Paulo · SS",
+        "🇲🇽 Mexico · Monterrey · VLESS",
+        "🇩🇪 Germany · Frankfurt · VLESS",
+        "🇩🇪 Germany · Frankfurt · SS",
+        "🇳🇱 Netherlands · Amsterdam · VLESS",
         "🇺🇸 U.S.A. · Phoenix · SS"
       ],
       "url": "https://www.gstatic.com/generate_204",
@@ -71,18 +71,18 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇬🇧 United Kingdom · Cardiff · SS",
-      "server": "144.24.231.11",
-      "server_port": 61312,
+      "tag": "🇧🇷 Brazil · São Paulo · SS",
+      "server": "144.22.168.108",
+      "server_port": 59319,
       "method": "2022-blake3-chacha20-poly1305",
-      "password": "hcAP6c3iDhgluV2fR+3+6LP0LsHgQNJ3ifTxXKGcOwM="
+      "password": "JlYWfyPGeC3bYDcl2hJCsgODec36rua5YToLCxcgrEM="
     },
     {
       "type": "vless",
-      "tag": "🇫🇷 France · Marseille · VLESS",
-      "server": "129.151.225.229",
-      "server_port": 65459,
-      "uuid": "0fca0424-e3c1-4ef7-997c-cd9811822501",
+      "tag": "🇲🇽 Mexico · Monterrey · VLESS",
+      "server": "40.233.1.77",
+      "server_port": 61503,
+      "uuid": "04bcfbb8-06d1-4922-ad5a-54ab28b1afda",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
@@ -100,31 +100,10 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹 Italy · Milan · VLESS",
-      "server": "172.232.200.238",
-      "server_port": 62708,
-      "uuid": "b39ac142-7fbb-4f9d-b691-3faa32e3dc4a",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "short_id": "1f2519bb96e5589c"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇳🇱 Netherlands · Amsterdam · VLESS",
-      "server": "158.178.159.143",
-      "server_port": 61323,
-      "uuid": "ca94b6cf-eed8-40d7-9cfe-56a04da1f988",
+      "tag": "🇩🇪 Germany · Frankfurt · VLESS",
+      "server": "31.184.244.97",
+      "server_port": 64921,
+      "uuid": "70dd5f86-6941-4560-bb8e-62a5c11868e5",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
@@ -142,11 +121,32 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇧🇷 Brazil · São Paulo · SS",
-      "server": "144.22.168.108",
-      "server_port": 59319,
+      "tag": "🇩🇪 Germany · Frankfurt · SS",
+      "server": "47.85.238.210",
+      "server_port": 443,
       "method": "2022-blake3-chacha20-poly1305",
-      "password": "JlYWfyPGeC3bYDcl2hJCsgODec36rua5YToLCxcgrEM="
+      "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherlands · Amsterdam · VLESS",
+      "server": "51.170.177.161",
+      "server_port": 64531,
+      "uuid": "00089900-c9b9-4627-8883-1beea20bb5bf",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "short_id": "1f2519bb96e5589c"
+        }
+      }
     },
     {
       "type": "shadowsocks",
