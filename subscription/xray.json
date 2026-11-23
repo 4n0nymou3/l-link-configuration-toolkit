@@ -40,9 +40,9 @@
     {
       "protocol": "vless",
       "settings": {
-        "address": "5.252.26.250",
-        "port": 64278,
-        "id": "792ba8e9-a25a-4b83-8311-bdac5a66790f",
+        "address": "45.82.31.87",
+        "port": 61264,
+        "id": "f78f7d6f-47b1-4361-8583-fe16d8253504",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -61,9 +61,9 @@
     {
       "protocol": "vless",
       "settings": {
-        "address": "172.233.202.240",
-        "port": 65202,
-        "id": "568ba536-998e-40a7-b687-c799ec876170",
+        "address": "193.123.61.193",
+        "port": 59222,
+        "id": "a28fb66b-0bff-4a2d-8f17-6592ed9cbf22",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -80,41 +80,11 @@
       "tag": "l-02-vless"
     },
     {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "144.24.231.11",
-        "port": 61312,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "hcAP6c3iDhgluV2fR+3+6LP0LsHgQNJ3ifTxXKGcOwM="
-      },
-      "tag": "l-03-ss"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "129.153.98.43",
-        "port": 50356,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "8raY95YKpFi6jz6EISftyuw0mqoCIj+ztS0ywTwpXH4="
-      },
-      "tag": "l-04-ss"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "158.101.203.164",
-        "port": 45819,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "IPFHJn8R/qKEsq3x+1xB+p4G1Ra6L8mXWfwMgcitql4="
-      },
-      "tag": "l-05-ss"
-    },
-    {
       "protocol": "vless",
       "settings": {
-        "address": "40.233.1.77",
-        "port": 61503,
-        "id": "04bcfbb8-06d1-4922-ad5a-54ab28b1afda",
+        "address": "172.234.154.37",
+        "port": 64558,
+        "id": "22f82899-f947-4d15-a14c-630bb773b0ea",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -128,7 +98,37 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-06-vless"
+      "tag": "l-03-vless"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "130.61.86.65",
+        "port": 59924,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "k/akhH2PNgnpmI1NzMowtf/qgs6VBxhfQV0Mhu+voDw="
+      },
+      "tag": "l-04-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "163.176.112.145",
+        "port": 59319,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "Ic+OAC77+mKdy0qMwPPjzkeu5dXrNYYa+hCdEXx3P2U="
+      },
+      "tag": "l-05-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "144.24.231.11",
+        "port": 61312,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "hcAP6c3iDhgluV2fR+3+6LP0LsHgQNJ3ifTxXKGcOwM="
+      },
+      "tag": "l-06-ss"
     },
     {
       "tag": "direct",
