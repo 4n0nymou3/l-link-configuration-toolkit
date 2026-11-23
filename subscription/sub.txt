@@ -4,9 +4,9 @@
 //support-url: https://t.me/An0nymou3Bot
 //profile-web-page-url: https://github.com/4n0nymou3
 
-vless://f78f7d6f-47b1-4361-8583-fe16d8253504@45.82.31.87:61264?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B0%F0%9F%87%BF%20Kazakhstan%20%C2%B7%20Almaty%20%C2%B7%20VLESS
-vless://a28fb66b-0bff-4a2d-8f17-6592ed9cbf22@193.123.61.193:59222?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%20%C2%B7%20Amsterdam%20%C2%B7%20VLESS
-vless://22f82899-f947-4d15-a14c-630bb773b0ea@172.234.154.37:64558?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%BA%F0%9F%87%B8%20U.S.A.%20%C2%B7%20Ashburn%20%C2%B7%20VLESS
-ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6ay9ha2hIMlBOZ25wbUkxTnpNb3d0Zi9xZ3M2VkJ4aGZRVjBNaHUrdm9Edz0@130.61.86.65:59924#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%C2%B7%20Frankfurt%20%C2%B7%20SS
+ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6M05Cc25CTGFuUGZHNmkzUzJHVEhpbmVzd3I2RWVTSlBiMFBDZU1Rb0dvQT0@47.85.238.210:443#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%C2%B7%20Frankfurt%20%C2%B7%20SS
 ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6SWMrT0FDNzcrbUtkeTBxTXdQUGp6a2V1NWRYck5ZWWEraENkRVh4M1AyVT0@163.176.112.145:59319#%F0%9F%87%A7%F0%9F%87%B7%20Brazil%20%C2%B7%20S%C3%A3o%20Paulo%20%C2%B7%20SS
-ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6aGNBUDZjM2lEaGdsdVYyZlIrMys2TFAwTHNIZ1FOSjNpZlR4WEtHY093TT0@144.24.231.11:61312#%F0%9F%87%AC%F0%9F%87%A7%20United%20Kingdom%20%C2%B7%20Cardiff%20%C2%B7%20SS
+ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6SmtVbGllR0MrQjhjMlpJT0ZKZDZkYlJNbjNtWVB2bTY0Z2JYM3NtU0FRND0@129.146.125.114:50356#%F0%9F%87%BA%F0%9F%87%B8%20U.S.A.%20%C2%B7%20Phoenix%20%C2%B7%20SS
+vless://f78f7d6f-47b1-4361-8583-fe16d8253504@45.82.31.87:61264?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%B0%F0%9F%87%BF%20Kazakhstan%20%C2%B7%20Almaty%20%C2%B7%20VLESS
+ss://MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6ay9ha2hIMlBOZ25wbUkxTnpNb3d0Zi9xZ3M2VkJ4aGZRVjBNaHUrdm9Edz0@130.61.86.65:59924#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20%C2%B7%20Frankfurt%20%C2%B7%20SS%20%232
+vless://3dcd858d-75e3-44a7-aa18-e534c477b96a@82.70.239.134:59038?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU&sid=1f2519bb96e5589c&type=tcp#%F0%9F%87%AB%F0%9F%87%B7%20France%20%C2%B7%20Marseille%20%C2%B7%20VLESS
