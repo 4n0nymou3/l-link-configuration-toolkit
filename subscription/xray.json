@@ -38,6 +38,37 @@
   ],
   "outbounds": [
     {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "129.153.104.15",
+        "port": 50356,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "mJ3smxWgPDWnFONZEq8iu9w90wDr0sOmdjJO6L9uomA="
+      },
+      "tag": "l-01-ss"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "address": "172.235.237.9",
+        "port": 58887,
+        "id": "73287568-abd1-46d5-bf66-8203af317379",
+        "encryption": "none",
+        "flow": "xtls-rprx-vision"
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.cloudflare.com",
+          "fingerprint": "chrome",
+          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
+          "shortId": "1f2519bb96e5589c"
+        }
+      },
+      "tag": "l-02-vless"
+    },
+    {
       "protocol": "vless",
       "settings": {
         "address": "82.70.227.132",
@@ -56,45 +87,24 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-01-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "129.146.125.114",
-        "port": 50356,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "JkUlieGC+B8c2ZIOFJd6dbRMn3mYPvm64gbX3smSAQ4="
-      },
-      "tag": "l-02-ss"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "address": "172.233.1.173",
-        "port": 64224,
-        "id": "a31f5ac0-7af3-457c-8e21-55a5e6a39516",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
-      },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
-        }
-      },
       "tag": "l-03-vless"
     },
     {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "129.151.82.116",
+        "port": 61312,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "7bfGtqZI0yexAAmG5BdHHp/T510Jybh0leREyRtXtrk="
+      },
+      "tag": "l-04-ss"
+    },
+    {
       "protocol": "vless",
       "settings": {
-        "address": "134.98.138.34",
-        "port": 59008,
-        "id": "a6aa64f5-c731-446d-b316-31d732c498b1",
+        "address": "193.123.61.193",
+        "port": 59222,
+        "id": "a28fb66b-0bff-4a2d-8f17-6592ed9cbf22",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -108,38 +118,17 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-04-vless"
+      "tag": "l-05-vless"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "144.24.231.11",
-        "port": 61312,
+        "address": "147.15.115.239",
+        "port": 59319,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "hcAP6c3iDhgluV2fR+3+6LP0LsHgQNJ3ifTxXKGcOwM="
+        "password": "ufRQNoVmSBchwcY7p814u5uoMZKgu/hJMN9RgfLrR7I="
       },
-      "tag": "l-05-ss"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "address": "207.127.90.56",
-        "port": 58996,
-        "id": "2b1799e2-c100-4ebe-9109-c9cb1cb94619",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
-      },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
-        }
-      },
-      "tag": "l-06-vless"
+      "tag": "l-06-ss"
     },
     {
       "tag": "direct",
@@ -158,7 +147,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-vless",
+        "fallbackTag": "l-01-ss",
         "strategy": {
           "type": "leastPing"
         }
