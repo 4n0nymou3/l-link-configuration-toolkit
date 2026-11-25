@@ -38,11 +38,31 @@
   ],
   "outbounds": [
     {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "129.146.125.114",
+        "port": 50356,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "JkUlieGC+B8c2ZIOFJd6dbRMn3mYPvm64gbX3smSAQ4="
+      },
+      "tag": "l-01-ss"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "47.85.227.36",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
+      },
+      "tag": "l-02-ss"
+    },
+    {
       "protocol": "vless",
       "settings": {
-        "address": "172.234.41.132",
-        "port": 58219,
-        "id": "2e47e403-a9f2-49cb-b1e5-88e5852e5342",
+        "address": "207.127.90.56",
+        "port": 58996,
+        "id": "2b1799e2-c100-4ebe-9109-c9cb1cb94619",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -56,34 +76,14 @@
           "shortId": "1f2519bb96e5589c"
         }
       },
-      "tag": "l-01-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "134.98.144.203",
-        "port": 45819,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "aFRWtF3zRx37HhDF6iGGM4KDcgx0TkVLDGD13ON7kRI="
-      },
-      "tag": "l-02-ss"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "163.176.100.208",
-        "port": 59319,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "5vThU1Sjl8z3WXcX13wQAKu+qcyPl9LSH7R2XIF+CV8="
-      },
-      "tag": "l-03-ss"
+      "tag": "l-03-vless"
     },
     {
       "protocol": "vless",
       "settings": {
-        "address": "40.233.25.195",
-        "port": 58780,
-        "id": "a9d7337e-9a3d-4f60-a484-25d29056686b",
+        "address": "172.235.237.9",
+        "port": 58887,
+        "id": "73287568-abd1-46d5-bf66-8203af317379",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -102,20 +102,20 @@
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "129.146.125.114",
-        "port": 50356,
+        "address": "152.70.13.236",
+        "port": 59924,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "JkUlieGC+B8c2ZIOFJd6dbRMn3mYPvm64gbX3smSAQ4="
+        "password": "eAnarc++VIoFRKS5o7uPzFkVJR5IewMKQBP93fDsnxk="
       },
       "tag": "l-05-ss"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "129.151.70.217",
-        "port": 61312,
+        "address": "163.176.100.208",
+        "port": 59319,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "4CQMSQMu2eQw6Z4LfZKQSgES5XNINwjRt26knQDAVyA="
+        "password": "5vThU1Sjl8z3WXcX13wQAKu+qcyPl9LSH7R2XIF+CV8="
       },
       "tag": "l-06-ss"
     },
@@ -136,7 +136,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-vless",
+        "fallbackTag": "l-01-ss",
         "strategy": {
           "type": "leastPing"
         }
