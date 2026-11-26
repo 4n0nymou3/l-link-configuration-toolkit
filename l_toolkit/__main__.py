@@ -1,6 +1,7 @@
 import argparse
 import logging
 import os
+import re
 import sys
 
 from . import constants as C
@@ -9,6 +10,9 @@ from .client import UpstreamClient
 from .errors import ExporterError
 from .pipeline import run
 from .state import generate_key_text, parse_key
+
+
+TIME_ZONE_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_+-]*(/[A-Za-z0-9_+-]+)*$")
 
 
 def _env(name, default):
@@ -25,6 +29,7 @@ def _parser():
         "--hysteria2-links", choices=C.HYSTERIA2_LINK_MODES, default=_env("L_HYSTERIA2_LINKS", C.DEFAULT_HYSTERIA2_LINKS)
     )
     parser.add_argument("--country", default=os.environ.get("L_CLIENT_COUNTRY", C.DEFAULT_COUNTRY))
+    parser.add_argument("--time-zone", default=os.environ.get("L_CLIENT_TIME_ZONE", U.DEFAULT_TIME_ZONE))
     parser.add_argument("--min-configs", type=int, default=int(_env("L_MIN_CONFIGS", C.MIN_CONFIGS)))
     parser.add_argument("--app-version", default=_env("L_UPSTREAM_APP_VERSION", U.DEFAULT_APP_VERSION))
     parser.add_argument("--singbox-version", default=_env("L_UPSTREAM_SINGBOX_VERSION", U.DEFAULT_SINGBOX_VERSION))
@@ -42,6 +47,10 @@ def main(argv=None):
     if args.min_configs < 1:
         print("--min-configs must be at least 1", file=sys.stderr)
         return 2
+    time_zone = args.time_zone.strip()
+    if time_zone and not TIME_ZONE_PATTERN.match(time_zone):
+        print("--time-zone must be an IANA zone name such as Asia/Tehran, or empty", file=sys.stderr)
+        return 2
     try:
         key = parse_key(os.environ.get(C.STATE_KEY_ENV, ""))
     except ExporterError as exc:
@@ -49,6 +58,7 @@ def main(argv=None):
         return 1
     client = UpstreamClient(
         country=args.country.strip().upper(),
+        time_zone=time_zone,
         app_version=args.app_version,
         singbox_version=args.singbox_version,
     )
