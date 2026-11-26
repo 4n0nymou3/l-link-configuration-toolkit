@@ -38,21 +38,11 @@
   ],
   "outbounds": [
     {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "129.153.104.15",
-        "port": 50356,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "mJ3smxWgPDWnFONZEq8iu9w90wDr0sOmdjJO6L9uomA="
-      },
-      "tag": "l-01-ss"
-    },
-    {
       "protocol": "vless",
       "settings": {
-        "address": "172.235.237.9",
-        "port": 58887,
-        "id": "73287568-abd1-46d5-bf66-8203af317379",
+        "address": "34.245.185.175",
+        "port": 443,
+        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
         "encryption": "none",
         "flow": "xtls-rprx-vision"
       },
@@ -60,75 +50,62 @@
         "network": "raw",
         "security": "reality",
         "realitySettings": {
-          "serverName": "www.cloudflare.com",
+          "serverName": "www.amazon.com",
           "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
+          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
         }
       },
-      "tag": "l-02-vless"
+      "tag": "l-01-vless"
     },
     {
-      "protocol": "vless",
+      "protocol": "hysteria",
       "settings": {
-        "address": "82.70.227.132",
-        "port": 64478,
-        "id": "973e3d3d-cf1b-4c70-a3f6-98db15a84dcc",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
+        "version": 2,
+        "address": "172.239.246.241",
+        "port": 8443
       },
       "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
+        "network": "hysteria",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "api.push.apple.com",
+          "alpn": [
+            "h3"
+          ],
+          "pinnedPeerCertSha256": "eaa62d4aac1cba6453c9aa46c1efdd29f03eff73e0ea3a486074582f99576ff1"
+        },
+        "hysteriaSettings": {
+          "version": 2,
+          "auth": "e1e3f30667ca4ddd7d02bba73d48eee408cc201ce4c8b60e3cd8149ce00f6660"
+        },
+        "finalmask": {
+          "udp": [
+            {
+              "type": "noise",
+              "settings": {
+                "reset": "30-60",
+                "noise": [
+                  {
+                    "rand": "8-64",
+                    "delay": "10-20"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
-      "tag": "l-03-vless"
+      "tag": "l-02-hy2"
     },
     {
       "protocol": "shadowsocks",
       "settings": {
-        "address": "129.151.82.116",
-        "port": 61312,
+        "address": "13.40.30.86",
+        "port": 443,
         "method": "2022-blake3-chacha20-poly1305",
-        "password": "7bfGtqZI0yexAAmG5BdHHp/T510Jybh0leREyRtXtrk="
+        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
       },
-      "tag": "l-04-ss"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "address": "193.123.61.193",
-        "port": 59222,
-        "id": "a28fb66b-0bff-4a2d-8f17-6592ed9cbf22",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
-      },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.cloudflare.com",
-          "fingerprint": "chrome",
-          "password": "U7t4RFE9MSMtC-o1DoJ8pYzKMfgVpTg6ZhTTknBrVkU",
-          "shortId": "1f2519bb96e5589c"
-        }
-      },
-      "tag": "l-05-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "147.15.115.239",
-        "port": 59319,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "ufRQNoVmSBchwcY7p814u5uoMZKgu/hJMN9RgfLrR7I="
-      },
-      "tag": "l-06-ss"
+      "tag": "l-03-ss"
     },
     {
       "tag": "direct",
@@ -147,7 +124,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-ss",
+        "fallbackTag": "l-01-vless",
         "strategy": {
           "type": "leastPing"
         }
