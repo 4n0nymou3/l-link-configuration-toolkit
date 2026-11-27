@@ -48,6 +48,36 @@
       "tag": "l-01-ss"
     },
     {
+      "protocol": "vless",
+      "settings": {
+        "address": "108.130.27.29",
+        "port": 443,
+        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
+        "encryption": "none",
+        "flow": "xtls-rprx-vision"
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.amazon.com",
+          "fingerprint": "chrome",
+          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
+        }
+      },
+      "tag": "l-02-vless"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "13.40.30.86",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
+      },
+      "tag": "l-03-ss"
+    },
+    {
       "protocol": "hysteria",
       "settings": {
         "version": 2,
@@ -85,37 +115,7 @@
           ]
         }
       },
-      "tag": "l-02-hy2"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "address": "52.49.207.197",
-        "port": 443,
-        "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
-        "encryption": "none",
-        "flow": "xtls-rprx-vision"
-      },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "www.amazon.com",
-          "fingerprint": "chrome",
-          "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
-        }
-      },
-      "tag": "l-03-vless"
-    },
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "address": "13.40.30.86",
-        "port": 443,
-        "method": "2022-blake3-chacha20-poly1305",
-        "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
-      },
-      "tag": "l-04-ss"
+      "tag": "l-04-hy2"
     },
     {
       "tag": "direct",
