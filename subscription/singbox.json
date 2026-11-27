@@ -45,9 +45,8 @@
       "tag": "👽 Anonymous L 🚀",
       "outbounds": [
         "👽 Anonymous L 🌐",
-        "🇩🇪 Germany · Frankfurt · SS",
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇩🇪 Germany · Frankfurt · SS #2",
+        "🇩🇪 Germany · Frankfurt · SS",
         "🇳🇱 Netherlands · Amsterdam · HY2"
       ],
       "default": "👽 Anonymous L 🌐"
@@ -56,22 +55,13 @@
       "type": "urltest",
       "tag": "👽 Anonymous L 🌐",
       "outbounds": [
-        "🇩🇪 Germany · Frankfurt · SS",
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇩🇪 Germany · Frankfurt · SS #2",
+        "🇩🇪 Germany · Frankfurt · SS",
         "🇳🇱 Netherlands · Amsterdam · HY2"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "🇩🇪 Germany · Frankfurt · SS",
-      "server": "3.79.151.244",
-      "server_port": 443,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
     },
     {
       "type": "vless",
@@ -95,7 +85,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇩🇪 Germany · Frankfurt · SS #2",
+      "tag": "🇩🇪 Germany · Frankfurt · SS",
       "server": "13.40.30.86",
       "server_port": 443,
       "method": "2022-blake3-chacha20-poly1305",
@@ -104,23 +94,25 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 Netherlands · Amsterdam · HY2",
-      "server": "172.239.242.174",
+      "server": "172.235.163.80",
       "server_port": 8443,
-      "password": "1351dd57bdea4f4d6092a7dea9e6363dcf8b0cf69b2f86145d169e5986fc908e",
+      "password": "c6e02fd6e5f783bfeb6a1361867659a927bae506465854f9474f8f8efb359baa",
       "tls": {
         "enabled": true,
         "server_name": "api.push.apple.com",
         "certificate": [
           "-----BEGIN CERTIFICATE-----",
-          "MIIBfjCCASSgAwIBAgIQYhIszZU+Ix00I6BBN5XMjzAKBggqhkjOPQQDAjATMREw",
-          "DwYDVQQDEwhlaWdodGgnczAeFw0yNjA4MDIwMzEzNDdaFw0zODA3MzAwMzEzNDda",
-          "MBMxETAPBgNVBAMTCGVpZ2h0aCdzMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE",
-          "kDYklqCsf8OioghM9R83wOgBkkjGL+Jfy5ZWRp/6WRL3VgCr4SKWeCrYFOk26jOz",
-          "VhgCRFT1eP77DfkyDrkyBqNaMFgwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoG",
-          "CCsGAQUFBwMBMAwGA1UdEwEB/wQCMAAwIwYDVR0RBBwwGoISYXBpLnB1c2guYXBw",
-          "bGUuY29thwSs7/KuMAoGCCqGSM49BAMCA0gAMEUCIQCDQHbvG0MmUU+Ysb6tzt4W",
-          "cpwia3gWwbsebc11UdaH4AIgEULtMgTX58jKEMKB5Wtcp1WGoVgTCv1S9eSEy0SM",
-          "V2w=",
+          "MIICCTCCAa+gAwIBAgIRAOCIEuJMVeN9PPevsB4C1zwwCgYIKoZIzj0EAwIwWDEV",
+          "MBMGA1UEChMMdGFtYXJpY2FjZWFlMT8wPQYDVQQDEzZzZW5kdXAncyB1bmRlcnNv",
+          "bWV0aGluZyBncmFuZGZhdGhlcmhvb2QgZmVzdGl2YWxnb2VyJ3MwHhcNMjYwNzEz",
+          "MTIyNjE1WhcNMzgwNzEwMTIyNjE1WjBYMRUwEwYDVQQKEwx0YW1hcmljYWNlYWUx",
+          "PzA9BgNVBAMTNnNlbmR1cCdzIHVuZGVyc29tZXRoaW5nIGdyYW5kZmF0aGVyaG9v",
+          "ZCBmZXN0aXZhbGdvZXInczBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABFtrsfXP",
+          "41UaqoeVL/pp8rwBsQlchASROHZr1M8ZIAsFZGUbc2m05eqPhqIPY2cSHCBNLTlj",
+          "FTSMej32I9OsXzGjWjBYMA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEF",
+          "BQcDATAMBgNVHRMBAf8EAjAAMCMGA1UdEQQcMBqCEmFwaS5wdXNoLmFwcGxlLmNv",
+          "bYcErOujUDAKBggqhkjOPQQDAgNIADBFAiBIBObPmkRVMZSlfcXwX93lbcYBnGXy",
+          "/48YD/ajL1dttgIhAM3ZixWcVuMtelvpb+IlKki7JwNVaUhiRi7zaBoJl8cV",
           "-----END CERTIFICATE-----"
         ]
       }
