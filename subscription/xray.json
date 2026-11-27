@@ -38,9 +38,19 @@
   ],
   "outbounds": [
     {
+      "protocol": "shadowsocks",
+      "settings": {
+        "address": "3.79.151.244",
+        "port": 443,
+        "method": "2022-blake3-chacha20-poly1305",
+        "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+      },
+      "tag": "l-01-ss"
+    },
+    {
       "protocol": "vless",
       "settings": {
-        "address": "108.130.27.29",
+        "address": "3.250.129.229",
         "port": 443,
         "id": "fad6c240-14d0-47ce-9264-21c5f18689c1",
         "encryption": "none",
@@ -55,7 +65,7 @@
           "password": "ZODw0ijKEfbSpHjvQqTyYzsbLpnlnA3j9Io5PfmZ-Ts"
         }
       },
-      "tag": "l-01-vless"
+      "tag": "l-02-vless"
     },
     {
       "protocol": "shadowsocks",
@@ -65,47 +75,7 @@
         "method": "2022-blake3-chacha20-poly1305",
         "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
       },
-      "tag": "l-02-ss"
-    },
-    {
-      "protocol": "hysteria",
-      "settings": {
-        "version": 2,
-        "address": "172.235.163.80",
-        "port": 8443
-      },
-      "streamSettings": {
-        "network": "hysteria",
-        "security": "tls",
-        "tlsSettings": {
-          "serverName": "api.push.apple.com",
-          "alpn": [
-            "h3"
-          ],
-          "pinnedPeerCertSha256": "85cd0a6d0962f1f23f8acc72ec662fc02cfeab51a3a886a186857afcec8dd8d5"
-        },
-        "hysteriaSettings": {
-          "version": 2,
-          "auth": "c6e02fd6e5f783bfeb6a1361867659a927bae506465854f9474f8f8efb359baa"
-        },
-        "finalmask": {
-          "udp": [
-            {
-              "type": "noise",
-              "settings": {
-                "reset": "30-60",
-                "noise": [
-                  {
-                    "rand": "8-64",
-                    "delay": "10-20"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "tag": "l-03-hy2"
+      "tag": "l-03-ss"
     },
     {
       "tag": "direct",
@@ -124,7 +94,7 @@
         "selector": [
           "l-"
         ],
-        "fallbackTag": "l-01-vless",
+        "fallbackTag": "l-01-ss",
         "strategy": {
           "type": "leastPing"
         }
