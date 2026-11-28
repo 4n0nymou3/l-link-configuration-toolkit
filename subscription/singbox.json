@@ -45,9 +45,9 @@
       "tag": "👽 Anonymous L 🚀",
       "outbounds": [
         "👽 Anonymous L 🌐",
-        "🇩🇪 Germany · Frankfurt · SS",
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇩🇪 Germany · Frankfurt · SS #2"
+        "🇩🇪 Germany · Frankfurt · VLESS #2",
+        "🇩🇪 Germany · Frankfurt · SS"
       ],
       "default": "👽 Anonymous L 🌐"
     },
@@ -55,26 +55,38 @@
       "type": "urltest",
       "tag": "👽 Anonymous L 🌐",
       "outbounds": [
-        "🇩🇪 Germany · Frankfurt · SS",
         "🇩🇪 Germany · Frankfurt · VLESS",
-        "🇩🇪 Germany · Frankfurt · SS #2"
+        "🇩🇪 Germany · Frankfurt · VLESS #2",
+        "🇩🇪 Germany · Frankfurt · SS"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50
     },
     {
-      "type": "shadowsocks",
-      "tag": "🇩🇪 Germany · Frankfurt · SS",
-      "server": "3.79.151.244",
+      "type": "vless",
+      "tag": "🇩🇪 Germany · Frankfurt · VLESS",
+      "server": "18.193.69.87",
       "server_port": 443,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
+      "uuid": "632a4f96-e02f-4f9f-a995-8a5f1ffffd04",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.amazon.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "B2ZQo5nrMuDMDePWEcLkJB41hYRMkguc6FzbMm4cYyI"
+        }
+      }
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 Germany · Frankfurt · VLESS",
-      "server": "3.250.129.229",
+      "tag": "🇩🇪 Germany · Frankfurt · VLESS #2",
+      "server": "176.34.147.52",
       "server_port": 443,
       "uuid": "fad6c240-14d0-47ce-9264-21c5f18689c1",
       "flow": "xtls-rprx-vision",
@@ -93,7 +105,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇩🇪 Germany · Frankfurt · SS #2",
+      "tag": "🇩🇪 Germany · Frankfurt · SS",
       "server": "13.40.30.86",
       "server_port": 443,
       "method": "2022-blake3-chacha20-poly1305",
